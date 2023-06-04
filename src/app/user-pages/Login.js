@@ -1,49 +1,48 @@
 import React, { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
 import swal from 'sweetalert';
-import { Link } from 'react-router-dom';
+import Dashboard from '../dashboard/Dashboard';
 
 async function loginUser(credentials) {
   console.log('loginUser');
-  return fetch(' https://kitecareer.com/flask/login', {
-    method: 'post',
+  return fetch('https://dummyjson.com/auth/login', {
+    method: 'POST',
     headers: {
-        // 'Accept': 'application/json',
-        'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(credentials)
-    /* body: JSON.stringify({
-      username: 'kminchelle',
-      password: '0lelplR',      
-    }) */
-}).then(data => data.json())
+  })
+    .then(data => data.json())
 }
+//username:atuny0
+//password:9uQFF1Lh
 
 export default function Login() 
 {
   console.log('login');
-  const [emailid, setEmailId] = useState();
+  //const classes = useStyles();
+  const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = async e => {
     e.preventDefault();
     const response = await loginUser({
-      emailid,
+      username,
       password
     });
- if ('Token' in response) {
-      swal("Success", response.message, "success", {
+    if ('token' in response) {
+      swal("Success", response.username, "success", {
         buttons: false,
         timer: 2000,
       })
-        .then((value) => {
-          localStorage.setItem('Token', response['Token']);
-          localStorage.setItem('user', JSON.stringify(response['user']));
-          window.location.href = "/dashboard";
-        });
+      .then((value) => {
+        localStorage.setItem('token', response['token']);
+        localStorage.setItem('firstName', response['firstName']);
+        window.location.href = "/dashboard";
+      });
     } else {
-      swal("Failed", response.message, "error");
-    } 
+      swal("Failed", response.username, "error");
+    }
   }
 
     return (
@@ -58,19 +57,19 @@ export default function Login()
                 <h4>Hello! let's get started</h4>
                 <Form className="pt-3" onSubmit={handleSubmit}>
                   <Form.Group className="d-flex search-field">
-                    <Form.Control type="email_id" placeholder="EmailId" size="lg" className="h-auto"
-                      onChange={(e) =>setEmailId(e.target.value)}
+                    <Form.Control type="email_id" placeholder="email_id" size="lg" className="h-auto"
+                      onChange={(e) => setUserName(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="d-flex search-field">
-                    <Form.Control type="password" placeholder="Password" size="lg" className="h-auto"
+                    <Form.Control type="password" placeholder="password" size="lg" className="h-auto"
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
                   <div className="mt-3">
-                   <Link to="/dashboard/Dashboard" type="submit" className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
-                    Login
-                      </Link>
+                    <Button type="submit" className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                    Sign In
+                    </Button>
                       {/* <Link className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >SIGN IN</Link> */}
                   </div>
                 </Form>
