@@ -1,0 +1,21 @@
+.table-responsive .badge {
+    padding: 0.8em 0.8em;
+    font-size: 80%;
+    width: 70%;
+}
+/* .btn
+{
+    padding: 0.2rem 0.5rem !important;
+    font-size: 0.775rem !important;
+    font-family: "Ubuntu", sans-serif !important;
+    font-weight: lighter !important;
+} */
+.table-striped tbody tr:nth-of-type(odd)
+{
+    background-color: #fff !important;
+}
+.btn
+{
+    padding: 0.2rem 0.2rem !important;
+    font-size: 12px !important;
+}

@@ -1,0 +1,9 @@
+[
+    { "uid": 1, "pid": 300, "fullName": "Herman Beck", "skillCapacity": "80", "lastUpdatedDate": "May 15, 2022", "status": "Completed" },
+    { "uid": 2, "pid": 301, "fullName": "Noor Khan", "skillCapacity": "50", "lastUpdatedDate": "May 25, 2022", "status": "Completed" },
+    { "uid": 3, "pid": 302, "fullName": "David Khan", "skillCapacity": "40", "lastUpdatedDate": "May 05, 2022", "status": "Completed" },
+    { "uid": 4, "pid": 303, "fullName": "Farouk Khan", "skillCapacity": "25", "lastUpdatedDate": "May 15, 2022", "status": "Completed" },
+    { "uid": 5, "pid": 304, "fullName": "Junaid Khan", "skillCapacity": "60", "lastUpdatedDate": "May 25, 2022", "status": "Completed" },
+    { "uid": 6, "pid": 305, "fullName": "Isaac Khan", "skillCapacity": "10", "lastUpdatedDate": "May 35, 2022", "status": "Completed" },
+    { "uid": 7, "pid": 306, "fullName": "Afari Khan", "skillCapacity": "90", "lastUpdatedDate": "May 05, 2022", "status": "Completed" }
+]
